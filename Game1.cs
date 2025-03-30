@@ -51,7 +51,7 @@ namespace Something
         {          
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //font = CreateDefaultFont(GraphicsDevice);
-            font = Content.Load<SpriteFont>("PixelFont");
+            font = Content.Load<SpriteFont>("PixelFont");//需要有字体文件
 
             var segments = new List<WheelSegment>
             {
@@ -99,7 +99,6 @@ namespace Something
                 }
             }
 
-            // 旋转按钮逻辑（修改）
             if (allowSpin && !isSpinning && mouseState.LeftButton == ButtonState.Pressed)
             {
                 if (Vector2.Distance(mousePos, center) < 50)
@@ -115,7 +114,7 @@ namespace Something
                 if (wheel.RotationSpeed <= 0)
                 {
                     isSpinning = false;
-                    canReset = true; // 新增状态转换
+                    canReset = true; 
                 }
             }
 
@@ -215,7 +214,6 @@ namespace Something
             this.font = font;
         }
 
-        // 新增方法
         public void ForceAlignToSection()
         {
             float segmentSize = 360f / segments.Count;
@@ -231,7 +229,7 @@ namespace Something
             RotationSpeed += random.Next(400, 1000);
         }
 
-        // 修改更新逻辑
+        
         public void Update(float deltaTime)
         {
             if (RotationSpeed > 0)
@@ -390,13 +388,3 @@ namespace Something
 }
 
 
-
-
-
-
-
-
-
-
-
-//font = Content.Load<SpriteFont>("PixelFont");
